@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="angular.min.js">
+    </script>
+</head>
+
+<body>
+    <div>
+        <div ng-controller="Aaa">
+            {{name}}
+        </div>
+        <div ng-controller="Bbb">
+            {{name}}
+        </div>
+    </div>
+    <script>
+        var m1 = angular.module("myApp", []);
+        console.log(m1);
+        m1.controller("Aaa", ["$scope", "$rootScope",
+            function($s, $rs) {
+                $s.name = "aa";
+            }
+        ]);
+        m1.controller("Bbb", function($scope) {
+            $scope.name = "bbb";
+        });
+
+        // var m1 = angular.module('myApp', []);
+        // console.log(m1);
+        // m1.controller('Aaa', ['$scope', '$rootScope', function($s, $rs) {
+        //     $s.name = 'hello angular';
+        // }]);
+        // m1.controller('Bbb', function($scope) {
+        //     $scope.name = 'hello miaov';
+        // });
+    </script>
+</body>
+
+</html>

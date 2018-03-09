@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function foo() {
+            var i = 0;
+            return function() {
+                console.log(i++);
+            }
+        }
+        var f1 = foo();
+        var f2 = foo();
+        f1();
+        f2();
+        f1();
+        f2();
+
+        function foo1() {
+            var i = 0;
+            return function() {
+                console.log(++i);
+            }
+        }
+
+
+
+        var f11 = foo1();
+        var f21 = foo1();
+        f11();
+        f21();
+        f11();
+        f21();
+
+
+        alert(null == undefined);
+        alert(null === undefined);
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+        var m = new Map();
+        var s = new Set();
+        alert('你的浏览器支持Map和Set！');
+        var names = ['Michael', 'Bob', 'Tracy'];
+        var scores = [95, 75, 85];
+        var m = new Map([
+            ['Michael', 95],
+            ['Bob', 75],
+            ['Tracy', 85]
+        ]);
+        m.get('Michael');
+
+        var m = new Map(); // 空Map
+        m.set('Adam', 67); // 添加新的key-value
+        m.set('Bob', 59);
+        m.has('Adam'); // 是否存在key 'Adam': true
+        m.get('Adam'); // 67
+        m.delete('Adam'); // 删除key 'Adam'
+        m.get('Adam'); // undefined
+        var m = new Map();
+        m.set('Adam', 67);
+        m.set('Adam', 88);
+        m.get('Adam'); // 88
+    </script>
+</body>
+
+</html>

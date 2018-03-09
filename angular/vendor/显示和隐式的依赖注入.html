@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div ng-app="myApp">
+        <div ng-controller="secondController">
+        </div>
+        <div ng-controller="otherController">
+        </div>
+    </div>
+    <script src="./angular/angularjs.js"></script>
+    <script>
+        var myApp = angular.module('myApp', [], ['$filterProvider', '$provide', '$controllerProvider', function(a, b, c) {
+                console.log(a, b, c);
+            }])
+            .factory('CustomSerivce', ['$window', function(a) {
+                console.log(a);
+            }])
+            .controller('firstController', ['$scope', '$filter', function(a, b) {
+                console.log(CustomService);
+            }])
+            .controller('secondController', ['$scope', '$filter', function(a, b) {
+                console.log(b('json')([1, 2, 3, 4, 5]));
+            }]);
+
+        function otherController(a) {
+            console.log(a);
+        }
+        otherController.$inject = ['$scope'];
+    </script>
+</body>
+
+</html>

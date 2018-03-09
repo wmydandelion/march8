@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div ng-app="">
+        <div ng-controller="firstController">
+            <input type="text" ng-model="name" name="" value=""> 改变次数:{{count}}-{{name}}
+        </div>
+    </div>
+    <script src="./angular/angularjs.js">
+    </script>
+    <script>
+        var firstController = function($scope) {
+            $scope.name = '张三';
+            $scope.data = {
+                name: '李四',
+                count: 20
+            }
+            $scope.count = 0;
+            $scope.$watch('name', function(newValue, oldValue) {
+                ++$scope.count;
+                if ($scope.count > 30) {
+                    $scope.name = '已经大于30次了';
+                }
+            });
+            $scope.$watch('data', function() {
+
+            }, true);
+        }
+    </script>
+</body>
+
+</html>

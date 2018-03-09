@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let sm = Symbol();
+        console.log(sm);
+        console.log(typeof sm);
+
+
+
+        let sm1 = Symbol();
+        let sm2 = Symbol();
+
+
+        console.log(sm1 == sm2);
+
+        console.log(sm1 === sm2);
+
+
+
+
+        console.log(sm1);
+        console.log(sm2);
+        let sm11 = Symbol('sm1');
+        let sm21 = Symbol('sm2');
+        let sm111 = Symbol('sm1');
+        console.log(sm11);
+        console.log(sm21);
+        console.log(sm11 == sm111);
+    </script>
+</body>
+
+</html>

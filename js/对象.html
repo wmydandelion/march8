@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // let person = {
+        //     'name': 'xxx',
+        //     'say': function() {
+        //         alert(this.name);
+        //     }
+        // }
+        // person.say();
+
+
+
+
+
+        var name = '1';
+        var age = 122;
+        var person = {
+            "name": name,
+            "age": age
+        }
+        console.log(person);
+
+
+
+
+        var person1 = {
+            say: function() {
+                alert(',,,,传统的');
+
+            }
+        }
+
+
+        var person2 = {
+
+            say() {
+                alert('es6;;;;');
+            }
+
+        }
+
+
+
+        var f = "first";
+        var n = "Name";
+        var s = "say";
+        var h = "Hello";
+
+
+        var person3 = {
+            [f + n]: 'sssss',
+            [s + h]() {
+                return 'iiiii';
+            }
+        }
+
+
+        console.log(person3.firstName);
+        //结果：Zhang
+        console.log(person3.sayHello());
+        //结果：你好吗？
+    </script>
+
+</body>
+
+</html>

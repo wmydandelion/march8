@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var bankAcount = {
+            "rmb": 111,
+            "dollar": 0
+        };
+        var banker = new Proxy(bankAcount, {
+            get: function(target, property) {
+                if (target[property] > 0) {
+                    //有余额，就返回余额值
+                    return target[property];
+                } else {
+                    //没钱了
+                    return "余额不足";
+                }
+            },
+            set: function(target, property, value) {
+                if (!Number.isInteger(value)) {
+                    return "请设置正确的数值";
+                }
+                //修改属性的值
+                target[property] = value;
+            }
+        });
+
+        console.log(banker.rmb);
+        console.log(banker.dollar);
+        banker.dollar = "1000";
+        console.log(banker.dollar);
+        banker.dollar = 1000;
+        console.log(banker.dollar);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="">
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="angular.min.js"></script>
+</head>
+
+<body>
+<div ng-controller="Aaa">
+	<ul>
+		<li ng-repeat="data in datalist" ng-click="data = $index">{{data}}</li>
+	</ul>
+</div>
+<script>
+	function Aaa($scope){
+$scope.datalist = [
+'aaaa','bbbbbb','cccccc','ddddddd'];
+	}
+</script>
+</body>
+
+</html>

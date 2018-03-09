@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div ng-app="">
+        <div ng-controller="firstController">
+            <input type="text" name="" ng-model="name" value="">
+            <div ng-controller="secondController">
+                <input type="text" name="" ng-model="name" value="">
+            </div>
+        </div>
+    </div>
+    <script src="./angular/angularjs.js"></script>
+    <script>
+        function first() {
+            var name = "zhangshan";
+
+            function second() {
+                var name = "12345";
+                alert(name);
+            }
+        }
+        var firstController = function($scope) {
+            $scope.name = '张三';
+            console.log($scope);
+
+        }
+
+        var secondController = function($scope) {
+            console.log($scope);
+        }
+    </script>
+</body>
+
+</html>

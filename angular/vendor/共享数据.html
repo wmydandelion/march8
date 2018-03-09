@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div ng-app="myApp">
+        <div ng-controller="firstController">
+            first.data <input type="text" ng-model="data.name" /> first.Data <input type="text" ng-model="Data.message" />
+            <p>
+                first-name:{{data.name}}
+            </p>
+            <p>
+                first-message:{{Data.message}}
+            </p>
+        </div>
+
+        <div ng-controller="secondController">
+            <p>
+                second-name:{{data.name}}
+            </p>
+            <p>
+                second-message:{{Data.message}}
+            </p>
+        </div>
+    </div>
+    <script src="./angular/angularjs.js"></script>
+    <script>
+        angular.module('myApp', [])
+            .factory("Data", function() {
+                return {
+                    message: "共享数据"
+                }
+            })
+            .controller("firstController", function($scope, Data) {
+                $scope.data = {
+                    name: "zzzzz"
+                }
+                $scope.Data = Data;
+            })
+            .controller('secondController', function($scope, Data) {
+                $scope.data = $scope.$$prevSibling.data;
+                $scope.Data = Data;
+            });
+    </script>
+</body>
+
+</html>

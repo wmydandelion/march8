@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        body {
+            padding: 1vw;
+        }
+        
+        .container {
+            text-align: center;
+        }
+        
+        .ball {
+            display: inline-block;
+            width: 1vw;
+            height: 1vw;
+            background-color: #333;
+            margin: 1vh;
+            border-radius: 50%;
+        }
+        
+        .ball1 {
+            animation: move 1s ease-in infinite alternate;
+        }
+        
+        .ball2 {
+            animation: move 1s linear infinite alternate;
+        }
+        
+        .ball3 {
+            animation: move 1s ease-out infinite alternate;
+        }
+        
+        @keyframes move {
+            100% {
+                transform: translateY(5vw);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="ball ball1"></div>
+        <div class="ball ball2"></div>
+        <div class="ball ball3"></div>
+    </div>
+</body>
+
+</html>

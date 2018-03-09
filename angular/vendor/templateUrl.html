@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div ng-app="myApp">
+        <script type="text/ng-template" id="customTags2">
+            <div>
+                hello {{name}}
+            </div>
+        </script>
+
+        <div ng-controller="firstController">
+            <custom-tags></custom-tags>
+            <custom-tags2></custom-tags2>
+        </div>
+    </div>
+
+    <script src="./angular/angularjs.js"></script>
+
+    <script>
+        var myApp = angular.module('myApp', [])
+            .directive('customTags', function() {
+                return {
+                    restrict: "ECMA",
+                    templateUrl: "other2.html",
+                    replace: true
+                }
+            })
+            .directive('customTags2', function() {
+                return {
+                    restrict: "ECMA",
+                    templateUrl: "customTags",
+                    replace: true
+                }
+            })
+            .controller('firstController', ['$scope', function($scope) {
+                $scope.name = "zhangshan";
+            }]);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="" type="" href="./bootstrap3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <style>
+        .orderColor {
+            color: pink;
+        }
+    </style>
+    <script src="./angular/angularjs.js"></script>
+</head>
+
+<body>
+    <div ng-app="product">
+        <div class="container" ng-controller="productController">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input type="text" ng-model="search.id" class="form-control" placeholder="Search">
+                        </div>
+                    </form>
+                </div>
+            </nav>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th ng-click="changeOrder('id')" ng-class="{dropup:order === ''}">
+                            产品编号
+                            <span ng-class="{orderColor:orderType === 'id'}" class="caret"></span>
+                        </th>
+                        <th ng-click="changeOrder('name')" ng-class="{dropup:order === ''}">
+                            产品名称
+                            <span ng-class="{orderColor:orderType === 'name'}" class="caret"></span>
+                        </th>
+                        <th ng-click="changeOrder('price')" ng-class="{dropup:order === ''}">
+                            产品价钱
+                            <span ng-class="{orderColor:orderType === 'price'}" class="caret"></span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--filter:{id:search}-->
+                    <tr ng-repeat="product in productData | filter:search | orderBy:order + orderType">
+                        <td>
+                            {{product.id}}
+                        </td>
+                        <td>
+                            {{product.name}}
+                        </td>
+                        <td>
+                            {{product.price | currency : '(RMB)'}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        angular.module('product', [])
+            .service('productData', function() {
+                return [{
+                    id: 333,
+                    name: 'iphone',
+                    price: 54000
+                }, {
+                    id: 885,
+                    name: 'ipad',
+                    price: 3420
+                }, {
+                    id: 980,
+                    name: 'imac',
+                    price: 15400
+                }, {
+                    id: 1212,
+                    name: 'ipad air',
+                    price: 2340
+                }, {
+                    id: 3424,
+                    name: 'ipad mini',
+                    price: 2200
+                }];
+
+            })
+            .controller('productController', function($scope, productData) {
+                $scope.productData = productData;
+                $scope.orderType = "id";
+                $scope.order = "-";
+                $scope.changOrder = function(type) {
+                    $scope.orderType = type;
+                    if ($scope.order === '') {
+                        $scope.order = '-';
+                    } else {
+                        $scope.order = "";
+                    }
+                }
+            });
+    </script>
+</body>
+
+</html>

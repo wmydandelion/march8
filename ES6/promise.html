@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    `Promise对象有三种状态： pending：刚刚创建一个Promise实例的时候，表示初始状态； fulfilled：resolve方法调用的时候，表示操作成功； rejected：reject方法调用的时候，表示操作失败；`
+    <script>
+        // let pro = new Promise(function(resolve, reject) {
+        //     if ('操作成功') {
+        //         resolve();
+        //     } else {
+        //         reject();
+        //     }
+        // });
+
+        // ro.then(function(res) {
+
+        // }, function(error) {
+
+        // });
+
+        // pro.catch(function(error) {});
+
+
+        // pro.then(function(res) {}).catch(function(error) {});
+
+        let pro = new Promise(function(resolve, reject) {
+            if (true) {
+                resolve('操作成功');
+            } else {
+                reject('操作异常');
+            }
+        });
+
+        pro.then(requestA).then(requestB).then(requestC).catch(requestError);
+
+        function requestA() {
+            console.log('请求A成功');
+            return '请求B，下一个就是你了';
+        }
+
+        function requestB(res) {
+            console.log('上一步的结果：' + res);
+            console.log('请求B成功');
+            return '请求C，下一个就是你了';
+        }
+
+        function requestC(res) {
+            console.log('上一步的结果：' + res);
+            console.log('请求C成功');
+        }
+
+        function requestError() {
+            console.log('请求失败');
+
+        }
+    </script>
+</body>
+
+</html>

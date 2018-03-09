@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.log(parseInt('123.3sdf'));
+
+        console.log(Number.parseInt('123.3sdf'));
+        console.log(Number.isInteger(3.2));
+        console.log(Number.isInteger(3));
+        console.log(Number.isInteger(3.0));
+
+        console.log(Number.isInteger(3.00));
+
+        console.log(Number.EPSILON);
+
+        console.log(Number.isSafeInteger(Number.MAX_SAFE_INTEGER));
+        console.log(Number.isSafeInteger(Number.MAX_SAFE_INTEGER + 1));
+
+
+
+        console.log(Math.trunc(3));
+        console.log(Math.trunc(3.1));
+
+        console.log(Math.trunc('a'));
+        console.log(Math.trunc('abc'));
+
+        console.log(Math.sign(3));
+        console.log(Math.sign(-3));
+        console.log(Math.sign(0));
+        console.log(Math.sign('abc'));
+        console.log(Math.sign('3'));
+        console.log(Math.sign('-3'));
+
+
+
+
+        console.log(Math.cbrt('8'));
+        console.log(Math.cbrt(8));
+        console.log(Math.cbrt(-27));
+    </script>
+</body>
+
+</html>

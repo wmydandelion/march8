@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let pro = new Promise(function(resolve, reject) {
+            //假设condition的值为true
+            let condition = true;
+
+            if (condition) {
+                //调用操作成功方法
+                resolve('操作成功');
+                //状态：pending->fulfilled
+            } else {
+                //调用操作异常方法
+                reject('操作异常');
+                //状态：pending->rejected
+            }
+        });
+
+        //用then处理操作成功，catch处理操作异常
+        pro.then(function(res) {
+
+            //操作成功的处理程序
+            console.log(res)
+
+        }).catch(function(error) {
+
+            //操作失败的处理程序
+            console.log(error)
+
+        });
+        //控制台输出：操作成功
+    </script>
+</body>
+
+</html>

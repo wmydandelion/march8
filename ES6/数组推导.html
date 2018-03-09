@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        var arr1 = [1, 0, 2, 3, 4];
+        var arr2 = [];
+        var arr3 = ['w', 'er', 'u', 45, 67, 90];
+
+        console.log(arr3);
+
+        for (let i = 0; i < arr1.length; i++) {
+            //每个元素乘以2后，push到数组arr2
+            arr2.push(arr1[i] * 2);
+        }
+        console.log(arr2);
+
+
+        // var arr3 = [
+        //     for (i of arr1) i * 2
+        // ];
+        // console.log(arr3);
+
+        var array1 = [1, 2, 3, 4];
+        var array2 = [
+            for (i of array1)
+                if (i > 3) i
+        ];
+        console.log(array2);
+    </script>
+</body>
+
+</html>

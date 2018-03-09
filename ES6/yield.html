@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function* gen1() {
+            yield 'gen1 start';
+            yield 'gen1 end';
+        }
+
+        function* gen2() {
+            yield 'gen2 start';
+            yield 'gen2 end';
+        }
+
+        function* start() {
+            yield "start";
+            yield* gen1();
+            yield* gen2();
+            yield "end";
+        }
+
+        var ite = start();
+        console.log(ite.next());
+        console.log(ite.next());
+        console.log(ite.next());
+        console.log(ite.next());
+        console.log(ite.next());
+        console.log(ite.next());
+        console.log(ite.next());
+        console.log(ite.next());
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="angular.min.js"></script>
+    <script src="service.js"></script>
+</head>
+
+<body ng-controller="Aaa">
+    <div>
+        {{name}}
+    </div>
+    <script>
+        var m2 = angular.module('myApp', ['mHello']);
+        m2.config(function(helloProvider) {
+            console.log(helloProvider);
+            helloProvider.str = "3456";
+        });
+        m2.controller('Aaa', ['$scope', 'hello', function($scope, hello) {
+            $scope.name = hello.name;
+            hello.show();
+        }]);
+    </script>
+
+
+
+
+</body>
+
+</html>

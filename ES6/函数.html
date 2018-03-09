@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function person(name = 'wmy', age = 22) {
+            console.log(name, age);
+        }
+        person();
+        person('www', 90);
+
+
+
+        function person1(age = 12) {
+            console.log(age);
+        }
+        person1();
+        person1(undefined);
+        person1(0);
+        person1(null);
+    </script>
+</body>
+
+</html>

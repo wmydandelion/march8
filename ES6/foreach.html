@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        if (typeof Array.prototype.forEach != 'function') {
+            Array.prototype.forEach = function(fn, context) {
+                for (var k = 0, length = this.length; k < length; k++) {
+                    if (typeof fn === "function" && Object.prototype.hasOwnProperty.call(this, k)) {
+                        fn.call(context, this[k], k, this);
+                    }
+                }
+            };
+        }
+        var arr = [1, 2, 3, 4];
+        for (var k = 0, length = arr.length; k < length; k++) {
+            console.log(arr[k]);
+
+        }
+
+        [5, 6, 7, 8, 9].forEach(console.log);
+    </script>
+
+</body>
+
+</html>

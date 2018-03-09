@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .pink {
+            color: pink;
+            font-size: 30px;
+            background: greenyellow;
+        }
+        
+        button {
+            border: 0;
+            border-radius: 20%;
+            display: inline-block;
+            width: 100px;
+            height: 50px;
+            color: red;
+            font-size: 20px;
+        }
+        
+        input {
+            border: 10px dotted #0de;
+            border-radius: 20%;
+            margin: 0;
+            padding: 0;
+            width: 200px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+        <input type="text" v-model="msg">
+        <button @click="add">
+        CLICK
+        </button>
+        <ul>
+            <li v-for="obj in arr" :class="{pink:obj.active}" @click="obj.active=!obj.active">
+                {{obj.val}}
+            </li>
+        </ul>
+    </div>
+
+    <script src="vue.min.js"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                msg: '',
+                arr: []
+            },
+            methods: {
+                add: function() {
+                    this.arr.push({
+                        val: this.msg,
+                        active: false
+                    });
+                    this.msg = '';
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

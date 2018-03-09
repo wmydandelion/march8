@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var str1 = '前端';
+        var str2 = '𠮷';
+        alert(str1.length);
+        alert(str2.length);
+        alert(str1.charAt(0));
+        alert(str1.charAt(1));
+        alert(str2.charAt(0));
+        alert(str2.charAt(1));
+
+
+        var str = '𠮷';
+        alert(str.codePointAt()); //结果:134071
+        alert(String.fromCodePoint(134071));
+
+
+
+        alert(String.fromCodePoint(str.codePointAt()));
+    </script>
+</body>
+
+</html>

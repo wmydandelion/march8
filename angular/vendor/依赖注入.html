@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var A = function() {
+            this.getName = function() {
+                return "zhangshan";
+            }
+        }
+        var a = new A;
+        console.log(a);
+        var B = function() {
+            document.write(a.getName());
+        }
+        var b = new B();
+    </script>
+</body>
+
+</html>

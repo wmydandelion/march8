@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="angular.min.js">
+    </script>
+</head>
+
+<body>
+    <div ng-controller="Aaa">
+        <p>{{num}}</p>
+        <p>{{num|currency:"$"}}</p>
+        <p>{{list}}</p>
+        <p>{{list|filter:"r"}}</p>
+    </div>
+
+
+    <script>
+        var m1 = angular.module("myApp", []);
+        m1.controller('Aaa', ['$scope', '$rootScope', function($scope, $rootScope) {
+            $scope.num = 1202304005.889;
+            $scope.list = [{
+                color: "red",
+                age: "300"
+            }, {
+                color: "red",
+                age: "311100"
+            }, {
+                color: "red",
+                age: "31100"
+            }];
+        }]);
+    </script>
+</body>
+
+</html>

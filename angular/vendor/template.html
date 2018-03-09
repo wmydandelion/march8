@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div ng-app="myApp">
+        <custom-tags>112324354567</custom-tags>
+        <div class="custom-tags"></div>
+        <div custom-tags></div>
+    </div>
+
+    <script src="./angular/angularjs.js"></script>
+    <script>
+        var myApp = angular.module('myApp', [], ['$compileProvider', function($compileProvider) {
+            return {
+                restrict: "ECMA",
+                template: '<div>custom-tags-html</div>',
+                replace: true
+            }
+        }]);
+    </script>
+</body>
+
+</html>

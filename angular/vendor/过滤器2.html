@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div ng-app="myApp">
+        <div ng-controller="firstController">
+            <p>{{[1,2,3,4,5,6,7,8,9,0]|limitTo:5}}</p>
+            <p>{{[1,2,3,4,5,6,7,8,9,0]|limitTo:-5}}</p>
+            <p>{{data.message|lowercase}}</p>
+            <p>{{data.message|Uppercase}}</p>
+            <p>{{data.city|filter:'上海'}}</p>
+            <p>{{data.city|filter:'name'}}</p>
+            <p>{{data.city|filter:{py:'g'}}}</p>
+            <p>{{data.city|filter:checkName}}</p>
+            <p>{{data.city|orderBy:"py"}}</p>
+            <p>{{data.city|orderBy : "-py"}}</p>
+        </div>
+    </div>
+
+    <script src="./angular/angularjs.js"></script>
+    <script>
+        // angular.module('myApp', [])
+        //     .factory('Data', function() {
+        //         return {
+        //             message: "hello world",
+        //             city: [{
+        //                 name: '上海11212',
+        //                 py: 'shanghai'
+        //             }, {
+        //                 name: '北京',
+        //                 py: 'beijing'
+        //             }, {
+        //                 name: '四川',
+        //                 py: 'sichuan'
+        //             }]
+        //         }
+        //     })
+        //     .controller('firstController', function($scope, Data, $filter) {
+        //         $scope.data = Data;
+        //         $scope.today = new Data;
+        //         var number = $filter('number')(3000);
+        //         var jsonString = $filter('json')($scope.data);
+        //         console.log(jsonString);
+        //         console.log($scope.data);
+        //         $scope.checkName = function(obj) {
+        //             if (obj.py.indexOf('h') === -1)
+        //                 return false;
+        //             return true;
+        //         }
+        //     })
+
+
+
+        angular.module('myApp', [])
+
+        .factory('Data', function() {
+
+            return {
+                message: 'Hello World',
+                city: [{
+                    name: '上海11212',
+                    py: 'shanghai'
+                }, {
+                    name: '北京',
+                    py: 'beijing'
+                }, {
+                    name: '四川',
+                    py: 'sichuan'
+                }]
+            };
+        })
+
+        .controller('firstController', function($scope, Data, $filter) {
+            $scope.data = Data;
+
+            $scope.today = new Date;
+
+
+            // 过滤器
+            var number = $filter('number')(3000);
+
+            var jsonString = $filter('json')($scope.data);
+
+            console.log(jsonString);
+            console.log($scope.data);
+
+            $scope.checkName = function(obj) {
+                if (obj.py.indexOf('h') === -1)
+                    return false;
+                return true;
+            }
+
+        })
+    </script>
+</body>
+
+</html>

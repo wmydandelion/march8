@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let m = new Map(
+            [
+                ["name", '28488388'],
+                ["gender", 45]
+            ]
+        );
+        m.set(1, 3);
+        m.set([5], 53);
+        m.set({
+            "name": "sdkkkk"
+        }, 90);
+        m.set(true, 56);
+        m.set(Symbol("name"), 199);
+        m.set(null, 34);
+        m.set(undefined, 2);
+        console.log(m);
+        console.log(m.get("name"));
+        console.log(m.delete("gender"));
+
+        // for (let [key, value] of m.entries()) {
+        //     console.log(key + '  ' + value);
+        // }
+
+
+        let m1 = new Map();
+        m1.set(1, 3);
+        m1.set('1', '3');
+
+        console.log(m1.size);
+    </script>
+</body>
+
+</html>

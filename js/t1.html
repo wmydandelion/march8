@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var s = {
+            s: 'student',
+            getS: function() {
+                console.log(this.s);
+            }
+        };
+
+        var t = {
+            t: 'teacher'
+        };
+
+
+        var getS = s.getS;
+        var getS1 = getS.bind(s);
+
+        s.getS();
+        s.getS.apply(t);
+        s.getS();
+        s.getS1.call(t);
+    </script>
+</body>
+
+</html>

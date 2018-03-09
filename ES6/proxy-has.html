@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var person = {
+            "name": "张三",
+            "age": 20
+        };
+
+        var proxy = new Proxy(person, {
+            has: function(target, prop) {
+                if (target[prop] === undefined) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+        });
+
+        console.log("name" in proxy);
+        console.log("height" in proxy);
+    </script>
+</body>
+
+</html>

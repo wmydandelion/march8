@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div ng-app="myApp">
+        <div ng-controller="firstController">
+            {{name}}
+        </div>
+    </div>
+    <script src="./angular/angularjs.js"></script>
+    <script>
+        var myApp = angular.module('myApp', [], function($provide) {
+            $provide.provider('CustomService', function() {
+                this.$get = function() {
+                    return {
+                        message: "CustomService message"
+                    }
+                }
+            });
+            $provide.provider('CustomService2', function() {
+                this.$get = function() {
+                    return {
+                        message: "111111111111"
+                    }
+                }
+            });
+        });
+        myApp.controller('firstController', function(CustomService, $scope, CustomService2) {
+            $scope.name = "dfkekkkrkk";
+            document.write(CustomService2);
+            console.log(CustomService2);
+        });
+    </script>
+</body>
+
+</html>

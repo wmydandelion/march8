@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="angular.min.js">
+    </script>
+</head>
+
+<body>
+    <div ng-controller="Aaa">
+        {{name}}
+        <div ng-controller="Bbb">
+            {{name}}
+            <div>
+                {{age}}
+            </div>
+
+        </div>
+        <script>
+            function Aaa($scope) {
+                $scope.name = "aa";
+                $scope.age = "22";
+            }
+
+            function Bbb($scope) {
+                $scope.name = "abba";
+                $scope.age = "212";
+            }
+        </script>
+
+</body>
+
+</html>

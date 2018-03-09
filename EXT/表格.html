@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../EXT/ext-2.0.2/resources/css/ext-all.css">
+    <script src="../EXT/ext-2.0.2/adapter/ext/ext-base.js"></script>
+    <script src="../EXT/ext-2.0.2/ext-all.js"></script>
+    <script src="../EXT/ext-2.0.2/examples/examples.js"></script>
+
+</head>
+
+<body>
+
+    <script>
+        var cm = new Ext.grid.ColumnModel([{
+            header: '编号',
+            dataIndex: 'id'
+        }, {
+            header: '名称',
+            dataIndex: 'name'
+        }, {
+            header: '描述',
+            dataIndex: 'descn'
+        }]);
+        var data = [
+            ['1', 'name1', 'desn1'],
+            ['2', 'name2', 'desn2'],
+            ['3', 'name3', 'desn3'],
+            ['4', 'name4', 'desn4'],
+            ['5', 'name5', 'desn5']
+        ];
+        var ds = new Ext.data.Store({
+            proxy: new Ext.data.MemoryProxy(data),
+            reader: new Ext.data.ArrayReader({}, [{
+                name: 'id',
+                mapping: 1
+            }, {
+                name: 'name',
+                mapping: 0
+            }, {
+                name: 'desn',
+                mapping: 2
+            }])
+
+        });
+
+        ds.load();
+    </script>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let obj = {
+            0: "我是0",
+            1: "我是1",
+            2: "我是2",
+            length: 3,
+            [Symbol.iterator]: function() {
+                let _this = this;
+                let index = 0;
+                return {
+                    next: () => {
+                        let value = _this[index];
+                        let done = (index >= _this.length);
+                        index++;
+                        return {
+                            value,
+                            done
+                        }
+                    }
+                }
+            }
+        };
+        for (let v of obj) {
+            console.log(v);
+        }
+    </script>
+
+
+
+
+
+</body>
+
+</html>
